@@ -1,10 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import {ToastProvider} from './Loaders/ToastContext';
 
-const App = () => {
+
+function App() {
   return (
-    <div>
-    
-    </div>
+    <ToastProvider>
+      <Router>
+        <Routes>
+          
+        </Routes>
+      </Router>
+    </ToastProvider>
   )
 }
 
