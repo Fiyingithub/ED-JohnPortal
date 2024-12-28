@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
-    // Add login logic here
+
+    try {
+      const response = await axios.post(
+        "https://edjohn.codeweborganization.com.ng/api/User/Login",
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
